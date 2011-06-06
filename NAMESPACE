@@ -1,0 +1,20 @@
+import(KernSmooth,graphics,stats)
+importFrom(car,bcPower)
+
+#S3method(print,"DiagTest3Grp")
+#S3method(plot,"DiagTest3Grp")
+#export("VUS", "Normal.VUS", "NonParametric.VUS", "NonParametric.VUS.var",  "SampleSize.VUS","VUS.CutPoint","Youden3Grp","Youden3Grp.PointEst","Youden3Grp.Variance.Normal","Youden3Grp.Variance.Bootstrap","Youden3Grp.Normal","SampleSize.Youden3Grp","Sp.Sm.Se","Youden2Grp.OptimalCutoff.Gamma.truePara","Youden3Grp.OptimalCutoff.Gamma.truePara","Youden3Grp.OptimalCutoff.Normal.trueMeanSD", "BW.ref","Bootstrap.Youden.Cutoff.1run","CI.normal","bootSample","empirical.cdf","PartialDeriv.optimalCutoff","PartialDeriv.Youden","var.mu","var.sigma","Var.t.minus","Var.Youden","FisherZ","FisherZ.Var","KernelSmoothing.cdf","Youden3Grp.BoxCox.lambda","negloglik.boxcox.3Grp","Youden3Grp.boxcox.fit","print.DiagTest3Grp","plot.DiagTest3Grp")
+
+export("VUS", "Normal.VUS", "NonParametric.VUS", "NonParametric.VUS.var",  "SampleSize.VUS","VUS.CutPoint","Youden3Grp","Youden3Grp.PointEst","Youden3Grp.Variance.Normal","Youden3Grp.Variance.Bootstrap","Youden3Grp.Normal","SampleSize.Youden3Grp","Sp.Sm.Se","Youden3Grp.OptimalCutoff.Normal.trueMeanSD", "BW.ref","Bootstrap.Youden.Cutoff.1run","CI.normal","bootSample","empirical.cdf","PartialDeriv.optimalCutoff","PartialDeriv.Youden","var.mu","var.sigma","Var.t.minus","Var.Youden","FisherZ","FisherZ.Var","KernelSmoothing.cdf","Youden3Grp.BoxCox.lambda","negloglik.boxcox.3Grp","Youden3Grp.boxcox.fit","print.DiagTest3Grp","plot.DiagTest3Grp","DiagTest3Grp.Test","Pairwise.DiagTest3Grp.Test")
+
+
+
+
+
+
+
+
+
+
+
+
