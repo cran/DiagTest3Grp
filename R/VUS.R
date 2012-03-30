@@ -1,4 +1,4 @@
-VUS <- function(x,y,z,method=c("Normal","NonPar"),p=0,q=0,alpha=0.05,NBOOT=100,subdivisions=50000,lam.minus=1/3,lam0=1/3,lam.plus=1/3,typeIerror=0.05,margin=0.05,optimalCut=TRUE,cut.seq=NULL,optimize=FALSE,...)
+VUS <- function(x,y,z,method=c("Normal","NonPar"),p=0,q=0,alpha=0.05,NBOOT=100,subdivisions=50000,lam.minus=1/3,lam0=1/3,lam.plus=1/3,typeIerror=0.05,margin=0.05,FisherZ=FALSE,optimalCut=TRUE,cut.seq=NULL,optimize=FALSE,...)
   {
     ######################################################################################################################################################
     #######A wrapper function provides: VUS (volume under ROC surface), variance and (1-alpha)*100% under both normal distribution assumption and 
@@ -13,7 +13,7 @@ VUS <- function(x,y,z,method=c("Normal","NonPar"),p=0,q=0,alpha=0.05,NBOOT=100,s
     ###(5)NBOOT:for the nonparametric estimate, # of bootstrap samples to draw to obtain bootstrap variance and CI
     ###(6) optimalCut=T: the functin will return the optimal cut point from VUS analyses
     ###(7) cut.seq: the sequence of values from which the optimal cut-point will be selected from, by default=NULL, will use the unique values of the collection of x,y,z
-    
+    ####(8) FisherZ
     ######2. Ouput: a DiagTest3Grp object, consisting of a list of components
     ####
     ####(1)type: a character value, "VUS" for VUS and "Youden" for the extended Youden index, indicating which summary measure is outputted
@@ -38,12 +38,12 @@ VUS <- function(x,y,z,method=c("Normal","NonPar"),p=0,q=0,alpha=0.05,NBOOT=100,s
     
     if(method=="Normal")
       {
-        temp.res <- Normal.VUS(x=x,y=y,z=z,p=p,q=q,subdivisions=subdivisions,alpha=alpha,...)
+        temp.res <- Normal.VUS(x=x,y=y,z=z,p=p,q=q,alpha=alpha,subdivisions=subdivisions,lam.minus=1/3,lam0=1/3,lam.plus=1/3,typeIerror=0.05,margin=0.05,FisherZ=FisherZ,...)
         partialDeriv <- temp.res$partialDeriv##a data.frame
       }else if(method=="NonPar")
       {
-        temp.res <- NonParametric.VUS(x=x,y=y,z=z)##estimate VUS
-        boot.res <- NonParametric.VUS.var(x=x,y=y,z=z,alpha=alpha,NBOOT=NBOOT)
+        temp.res <- NonParametric.VUS(x=x,y=y,z=z,FisherZ=FisherZ)##estimate VUS
+        boot.res <- NonParametric.VUS.var(x=x,y=y,z=z,alpha=alpha,NBOOT=NBOOT,FisherZ=FisherZ)
         temp.res$variance <-boot.res$var0
         temp.res$CI <- boot.res$CI
         temp.res$sampleSize <- NA

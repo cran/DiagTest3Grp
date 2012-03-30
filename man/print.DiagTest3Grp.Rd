@@ -7,7 +7,7 @@ S3 class method print for a \code{\link{DiagTest3Grp}} object: Print
 relevant information on a DiagTest3Grp object.
 }
 \usage{
- print.DiagTest3Grp(x,...)
+\method{print}{DiagTest3Grp}(x,...)
 }
 
 \arguments{

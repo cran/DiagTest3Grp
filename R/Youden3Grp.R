@@ -4,7 +4,7 @@
 #
 ###################################################################################################################
 
-Youden3Grp <- function(x,y,z, method=c("Normal","TN","EMP","KS","KS-SJ"),randomStart.N=1,optim.method=NULL,t.minus.start=NULL,t.plus.start=NULL,lam.minus=1/3,lam0=1/3,lam.plus=1/3,typeIerror=0.05,margin=0.05,NBOOT=10,seed.seq=NULL,alpha=0.05,...)
+Youden3Grp <- function(x,y,z, method=c("Normal","TN","EMP","KS","KS-SJ"),randomStart.N=1,optim.method=NULL,t.minus.start=NULL,t.plus.start=NULL,lam.minus=1/3,lam0=1/3,lam.plus=1/3,typeIerror=0.05,margin=0.05,NBOOT=10,seed.seq=NULL,alpha=0.05,FisherZ=FALSE,...)
   {
 
      ###Inputs:
@@ -29,6 +29,7 @@ Youden3Grp <- function(x,y,z, method=c("Normal","TN","EMP","KS","KS-SJ"),randomS
     ##NBOOT:# of bootstrap iterations
     ###seed.seq: the random seed for bootstrapping procedure to obtain bootstrapping variance and percentile confidence interval if methods other than "Normal" is adopted
     ###alpha: significance level to obtain CI
+    ###FisherZ: see VUS.R
     
      ######2. Ouput: a DiagTest3Grp object, consisting of a list of components
     ####
@@ -54,7 +55,7 @@ Youden3Grp <- function(x,y,z, method=c("Normal","TN","EMP","KS","KS-SJ"),randomS
     
     ######Youden index, cut-point and sample size point estimate
     
-    pointEst <- Youden3Grp.PointEst(x=x,y=y,z=z, method=method,randomStart.N=randomStart.N,optim.method=optim.method,t.minus.start=t.minus.start,t.plus.start=t.plus.start,lam.minus=lam.minus,lam0=lam0,lam.plus=lam.plus,typeIerror=typeIerror,margin=margin,...)
+    pointEst <- Youden3Grp.PointEst(x=x,y=y,z=z, method=method,randomStart.N=randomStart.N,optim.method=optim.method,t.minus.start=t.minus.start,t.plus.start=t.plus.start,lam.minus=lam.minus,lam0=lam0,lam.plus=lam.plus,typeIerror=typeIerror,margin=margin,FisherZ=FisherZ,...)
     
     ######Variance Computation
     if(method=="Normal")
@@ -69,8 +70,9 @@ Youden3Grp <- function(x,y,z, method=c("Normal","TN","EMP","KS","KS-SJ"),randomS
       }
     else stop("methods should be Normal/TN/EMP/KS/KS-SJ")
 
+    if(!FisherZ) CI <- temp.res$youden.CI else CI <- temp.res$youden.z.CI
     
-    out0 <- list(type="Youden",method=method,dat=pointEst$dat,dat.summary=pointEst$dat.summary,estimate=pointEst$est$youden,variance=temp.res$var.youden,CI=temp.res$youden.CI,cut.point=c(t.minus=pointEst$est$t.minus,t.plus=pointEst$est$t.plus),classify.prob=c(Sp=pointEst$est$Sp,Sm=pointEst$est$Sm,Se=pointEst$est$Se),sampleSize=pointEst$est$sampleSize,alpha=alpha,typeIerror=typeIerror,margin=margin,partialDeriv=partialDeriv)####cut.point in original data scale thoug t.minus.TN and t.plus.TN record the optimal cut-points after Box-Cox transformation 
+    out0 <- list(type="Youden",method=method,dat=pointEst$dat,dat.summary=pointEst$dat.summary,estimate=ifelse(FisherZ,pointEst$est$youden.z,pointEst$est$youden),variance=ifelse(FisherZ,temp.res$var.youden.z,temp.res$var.youden),CI=CI,cut.point=c(t.minus=pointEst$est$t.minus,t.plus=pointEst$est$t.plus),classify.prob=c(Sp=pointEst$est$Sp,Sm=pointEst$est$Sm,Se=pointEst$est$Se),sampleSize=pointEst$est$sampleSize,alpha=alpha,typeIerror=typeIerror,margin=margin,partialDeriv=partialDeriv)####cut.point in original data scale thoug t.minus.TN and t.plus.TN record the optimal cut-points after Box-Cox transformation 
     ###note:var.t.minus, var.t.plus can be provided too but will not be outputted here for the DiagTest3Grp class.
     
     class(out0) <- "DiagTest3Grp"

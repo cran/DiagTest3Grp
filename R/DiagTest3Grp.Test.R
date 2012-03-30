@@ -231,7 +231,7 @@ DiagTest3Grp.Test <- function(dat,paired=FALSE,type=c("VUS","Youden"),p=0,q=0,mu
     
     df <- K-1
     names(df) <- "df"
-    chisq.p.value <- pchisq(chisq.stat,df=K-1,lower=FALSE)
+    chisq.p.value <- pchisq(chisq.stat,df=K-1,lower.tail=FALSE)
 
 
     names(mu) <- paste("diff in ",type,sep="")
@@ -251,7 +251,7 @@ DiagTest3Grp.Test <- function(dat,paired=FALSE,type=c("VUS","Youden"),p=0,q=0,mu
         
         if(alternative=="two.sided")
           {
-            z.p.value <- 2*pnorm(-abs(z.stat),lower=TRUE)
+            z.p.value <- 2*pnorm(-abs(z.stat),lower.tail=TRUE)
             #ci <- CI.normal(diff,abs.diff.se,alpha=1-conf.level)
             alpha <- 1-conf.level
             cint <- qnorm(1-alpha/2)*diff.se
@@ -259,11 +259,11 @@ DiagTest3Grp.Test <- function(dat,paired=FALSE,type=c("VUS","Youden"),p=0,q=0,mu
           }
         else if (alternative=="less")
           {
-            z.p.value <- pnorm(z.stat,lower=TRUE)
+            z.p.value <- pnorm(z.stat,lower.tail=TRUE)
             cint <- c(-Inf,diff+qnorm(conf.level)*diff.se)
           }else if (alternative=="greater")
             {
-              z.p.value <- pnorm(z.stat,lower=FALSE)
+              z.p.value <- pnorm(z.stat,lower.tail=FALSE)
               cint <- c(diff-qnorm(conf.level)*diff.se,Inf)
             }
         attr(cint,"conf.level") <- conf.level

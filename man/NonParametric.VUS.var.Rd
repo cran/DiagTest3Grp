@@ -9,7 +9,7 @@
   ROC surface (VUS) through bootstrapping.
 }
 \usage{
-  NonParametric.VUS.var(x, y, z, alpha = 0.05, NBOOT = 100)  
+  NonParametric.VUS.var(x, y, z, alpha = 0.05, NBOOT = 100,FisherZ=FALSE)  
 }
 
 \arguments{
@@ -30,10 +30,11 @@ A numeric value,  confidence level for confidence interval, will result in
     (1-alpha)*100\%; Default alpha=0.05, i.e., 95\% confidence
     interval.  
 }
-  \item{NBOOT}{
+\item{NBOOT}{
 A numeric value, total number of bootstrap samples to draw for estimate of variance of
-  the VUS nonparametric estimate.
-}
+the VUS nonparametric estimate.}
+\item{FisherZ}{A logic value. Default=FALSE. If TRUE, will transform the
+nonparametric estimate through Fisher's Z transformation: \eqn{\theta^*=1/2log(\frac{1+\theta}{1-\theta})}}
 }
 \details{
 Return a numeric value, the variance estimation on the nonparametric VUS estimate obtained

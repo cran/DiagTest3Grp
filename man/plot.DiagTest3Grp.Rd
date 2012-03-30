@@ -6,7 +6,7 @@
   Scatter-plot and box-plot}
 
 \usage{
- plot.DiagTest3Grp(x,...)
+\method{plot}{DiagTest3Grp}(x,...)
 }
 
 \arguments{

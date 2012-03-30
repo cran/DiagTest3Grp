@@ -14,7 +14,7 @@
 }
 \usage{ Youden3Grp.PointEst(x, y, z, method = "Normal", randomStart.N
 =1, optim.method = NULL, t.minus.start = NULL, t.plus.start = NULL, 
-lam.minus = 1/3, lam0 = 1/3, lam.plus = 1/3, typeIerror = 0.05, margin=0.05, ...)  
+lam.minus = 1/3, lam0 = 1/3, lam.plus = 1/3, typeIerror = 0.05, margin=0.05,FisherZ=FALSE, ...)  
 }
 
 \arguments{
@@ -78,6 +78,7 @@ lam.minus = 1/3, lam0 = 1/3, lam.plus = 1/3, typeIerror = 0.05, margin=0.05, ...
     calculate 95\% CI.  }  
   \item{margin}{A numeric value. The margin of error on the Youden index estimate in
     sample size calculation. Default, margin=0.05.  }
+  \item{FisherZ}{Reference to the argument in \code{\link{Normal.VUS}}.}
  \item{...}{ Other options for the R function \code{\link{optim}}.}
 }
 

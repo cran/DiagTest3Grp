@@ -1,4 +1,4 @@
-NonParametric.VUS <- function(x,y,z,alpha=0.05,NBOOT=50)
+NonParametric.VUS <- function(x,y,z,alpha=0.05,NBOOT=50,FisherZ=FALSE)
   {
     ######################################################################################################################################################
     ########This function provides Nonparametric estimate on VUS =Pr(X1<=X2<=X3)
@@ -35,7 +35,7 @@ NonParametric.VUS <- function(x,y,z,alpha=0.05,NBOOT=50)
     flag <- 1*(temp.merge2$x<=temp.merge2$y & temp.merge2$y<=temp.merge2$z)###if no ties,weight 1
     flag[temp.merge2$x==temp.merge2$y | temp.merge2$y==temp.merge2$z] <- 0.5##ties have weight 0.5
     VUS <- mean(flag)
-
+    if(FisherZ) VUS <- FisherZ(VUS)
     ###bootstrap variance and CI has to be obtained by bootstrapping outside the function
        
     return(list(dat=list(x=x,y=y,z=z),dat.summary=dat.summary,estimate=VUS))

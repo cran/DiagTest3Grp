@@ -12,7 +12,7 @@ normal distributions in each diagnosis group.
 \usage{
 SampleSize.VUS(mu.minus, mu0, mu.plus, s.minus, s0, s.plus, p = 0, q =
 0, lam.minus = 1/3, lam0 = 1/3, lam.plus = 1/3, typeIerror = 0.05,
- margin = 0.05, subdivisions = 50000, ...)  
+ margin = 0.05,subdivisions = 50000, ...)  
 }
 
 \arguments{
@@ -74,8 +74,7 @@ SampleSize.VUS(mu.minus, mu0, mu.plus, s.minus, s0, s.plus, p = 0, q =
  A numeric value, the margin of error on the VUS estimates in sample size
   calculation. Default, margin=0.05. 
 }
-  \item{subdivisions}{
-    The number of subintervals for integration using
+\item{subdivisions}{ A numeric value, the number of subintervals for integration using
     adaptive quadrature in the R function
     \code{\link{integrate}}. Default, subdivisions=50000.   
 }

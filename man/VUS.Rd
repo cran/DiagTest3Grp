@@ -14,7 +14,7 @@
    estimation precision on VUS estimate. }
 \usage{ VUS(x, y, z, method =c("Normal","NonPar"), p = 0, q = 0, alpha = 0.05,
 NBOOT = 100, subdivisions = 50000, lam.minus = 1/3, lam0 = 1/3, lam.plus
- = 1/3, typeIerror = 0.05, margin =0.05,optimalCut=TRUE,cut.seq=NULL,optimize=FALSE, ...) 
+ = 1/3, typeIerror = 0.05, margin =0.05,FisherZ=FALSE,optimalCut=TRUE,cut.seq=NULL,optimize=FALSE,...) 
 
 }
 
@@ -80,6 +80,7 @@ A numeric value, the margin of error on the VUS estimates in sample size
     the CI's length, where Z_a is the normal quantile, \eqn{Z_a=1.95} given
     default typeIerror a=0.05.
   }
+  \item{FisherZ}{Reference to the argument in \code{\link{Normal.VUS}}.}
   \item{optimalCut}{
    A logic value of TRUE or FALSE. If TRUE, the
     function will return optimal cut-point from VUS analyses.

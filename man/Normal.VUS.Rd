@@ -14,7 +14,7 @@
 \usage{
  Normal.VUS(x, y, z, p = 0, q = 0, alpha = 0.05, subdivisions = 50000,
  lam.minus = 1/3, lam0 = 1/3, lam.plus = 1/3, typeIerror = 0.05,
- margin=0.05, ...)      
+ margin=0.05,FisherZ=FALSE,...)      
 }
 
 \arguments{
@@ -75,6 +75,15 @@ A numeric value, (1-typeIerror)*100\% confidence interval (CI) in sample size
   the CI's length, where \eqn{Z_a} is the normal quantile, Z_a=1.95 given
   default typeIerror=0.05.
 }
+\item{FisherZ}{A logic value. Default=FALSE. If set to TRUE, the VUS estimate, associated
+  variance, CI and sample size will be calculated on the logit scale,
+  i.e., after the Fisher Z transformation. In sample size calculation,
+  we place the margin of error "delta" on the CI of the VUS 
+  estimate (if FisherZ=FALSE). If VUS is close to 1, the resulting CI on
+  the original scale will  have insufficient nominal
+  coverage and under-estimated sample size. Therefore, the VUS estimate, variance, CI and sample size
+  calculation should be implemented on the logit scale via the Fisher Z
+  transformation.}
 \item{\dots}{Other arguments that can be passed to the R function
   \code{\link{integrate}}, e.g., abs.tol,rel.tol,stop.on.error etc.     
 }
@@ -110,7 +119,10 @@ The integration domain is \eqn{D_{00}=\{0\le x \le 1,0\le y \le
 G_+(F_-^{-1}(x))\}}. Partial VUS requires a marker has specificity at
 least p and sensitivity at least q. The equation of partial VUS will be similar to the
 above but the integration domain is \eqn{D_{pq}=\{p\le x \le 1,q \le y \le
-  G_+(F_-^{-1}(x))\}}.  
+  G_+(F_-^{-1}(x))\}}.
+
+Details on the sample size calculation in the original scale and in the logit scale
+(after Fisher's Z transformation) can be found in the reference papers.
 }
 \value{ A list of components, including
   \item{dat}{A list of components \dQuote{x},\dQuote{y}, \dQuote{z},
@@ -145,7 +157,9 @@ above but the integration domain is \eqn{D_{pq}=\{p\le x \le 1,q \le y \le
   Measuring and Estimating Diagnostic Accuracy When There 
   Are Three Ordinal Diagnostic Groups. \emph{Statistics In Medicine} \bold{25}
   7 1251--1273.
-  
+  Luo, Jingqin and Xiong, Chengjie (2012) DiagTest3Grp: An R Package for
+  Analyzing Diagnostic Tests with Three Ordinal Groups. \emph{Journal of
+    Statistical Software (submitted)}
 }
 \author{
  Jingqin Luo

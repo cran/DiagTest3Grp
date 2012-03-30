@@ -10,9 +10,11 @@ function(mu.minus,mu0,mu.plus,s.minus,s0,s.plus,p=0,q=0,lam.minus=1/3,lam0=1/3,l
     ####(5)lam.minus, lam0,lam.plus: for sample size calculation, the expected proportion of samples in the D-, D0 and D+ group, which can be equal or not
     ####(6)typeIerror:type I error rate for sample size calculation,default= 0.05, give 95% CI
     ####(7)margin: for sample size calculation, margin of error on the VUS estimates,,default=0.05. The normal (1-typeIerror)% CI is (VUS-Z_typeIerror*SE(VUS),VUS-Z_typeIerror*SE(VUS)), the sample size calculation will be calculated such that Z_typeIerror*SE(VUS)=margin
- ####(8)subdivisions: # of subintervals for integration using adaptive quadrature
-    ####(9)....,  other arguments used in the R function integrate() can be passed along, such as, abs.tol,rel.tol,stop.on.error etc
-
+    ####(8)subdivisions: # of subintervals for integration using adaptive quadrature
+    ####(11)....,  other arguments used in the R function integrate() can be passed along, such as, abs.tol,rel.tol,stop.on.error etc
+    
+  #Example: SampleSize.VUS(0.5,1.5,3,0.01,0.1,0.5)
+    
     #####functions used for integration to obtain VUS estimates, see Xiong et al 2007 paper
     
     f0 <- function(s,a,b,c,d,p,q)
@@ -55,7 +57,8 @@ function(mu.minus,mu0,mu.plus,s.minus,s0,s.plus,p=0,q=0,lam.minus=1/3,lam0=1/3,l
 
     lower <- (qnorm(p)+b)/a#lower=-Inf when p=q=0
     upper <- (d-qnorm(q))/c
-
+    
+    
     V.a <- integrate(f1,a=a,b=b,c=c,d=d,q=q,lower=lower,upper=upper,subdivisions=subdivisions,...)$value
     V.b <- integrate(f2,a=a,b=b,c=c,d=d,q=q,lower=lower,upper=upper,subdivisions=subdivisions,...)$value
     V.c <- integrate(f3,a=a,b=b,c=c,d=d,p=p,lower=lower,upper=upper,subdivisions=subdivisions,...)$value
@@ -63,10 +66,12 @@ function(mu.minus,mu0,mu.plus,s.minus,s0,s.plus,p=0,q=0,lam.minus=1/3,lam0=1/3,l
     
     Mv <- 0.5*V.a^2*a^2*(1+lam0/lam.minus)+V.b^2*(a^2+0.5*b^2*lam0/lam.minus+lam0/lam.minus)+0.5*V.c^2*c^2*(1+lam0/lam.plus)+V.d^2*(c^2+0.5*d^2*lam0/lam.plus+lam0/lam.plus)+V.a*V.b*a*b*lam0/lam.minus+V.a*V.c*a*c+2*V.b*V.d*a*c+V.c*V.d*c*d*lam0/lam.plus
 
-    z0 <- qnorm(typeIerror/2,lower=F)
+    z0 <- qnorm(typeIerror/2,lower.tail=F)
     
-    sampleSize <- ceiling(z0^2*Mv/margin^2)
+    sampleSize <- z0^2*Mv/margin^2
 
+    #sampleSize <- ceiling(sampleSize)
+    
     return(sampleSize)
   }
 

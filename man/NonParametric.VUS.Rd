@@ -8,7 +8,7 @@
    Nonparametric estimate of volumn under ROC surface (VUS)  
 }
 \usage{
- NonParametric.VUS(x, y, z,alpha=0.05,NBOOT=50)  
+ NonParametric.VUS(x, y, z,alpha=0.05,NBOOT=50,FisherZ=FALSE)  
 }
 
 \arguments{
@@ -25,7 +25,8 @@
  \item{alpha}{A numeric value, (1-alpha)*100\% percentile Confidence interval of the VUS estimate
    under normal assumption. Default, alpha=0.05.  }
  \item{NBOOT}{A integer.Total number of bootstrap samples for implementation.}
-
+\item{FisherZ}{A logic value. Default=FALSE. If TRUE, will transform the
+nonparametric estimate through Fisher's Z transformation: \eqn{\theta^*=1/2log(\frac{1+\theta}{1-\theta})}}
  }
 \details{
 The volume under ROC surface (VUS) indicates the probability of

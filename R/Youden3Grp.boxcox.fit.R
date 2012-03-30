@@ -110,9 +110,9 @@ function (object1, xmat1, lambda, lambda2 = NULL, add.to.data1 = 0, object2, xma
       }
     else {
         ##changed (-5,5) to (-20,20)
-        lik.lambda <- optimize(negloglik.boxcox.3Grp, int = c(-20, 20), data1 = data1 + absmin1, xmat1 = xmat1,data2 = data2 + absmin2, xmat2 = xmat2,data3 = data3 + absmin3, xmat3 = xmat3,lik.method = lik.method,tol=0.01)##08/06/2009,change tol from default (around 0.0001) to 0.1 for speed
+        lik.lambda <- optimize(negloglik.boxcox.3Grp, interval = c(-20, 20), data1 = data1 + absmin1, xmat1 = xmat1,data2 = data2 + absmin2, xmat2 = xmat2,data3 = data3 + absmin3, xmat3 = xmat3,lik.method = lik.method,tol=0.01)##08/06/2009,change tol from default (around 0.0001) to 0.1 for speed
         ######02/25/2010 change the argument interval=c(min(c(data1,data2,data3)), max(c(data1,data2,data3))) instead of (-20,20) in the optimize function 
-        #lik.lambda <- optimize(negloglik.boxcox.3Grp, int =c(min(c(data1,data2,data3)), max(c(data1,data2,data3))) , data1 = data1 + absmin1, xmat1 = xmat1,data2 = data2 + absmin2, xmat2 = xmat2,data3 = data3 + absmin3, xmat3 = xmat3,lik.method = lik.method,tol=0.01)
+        #lik.lambda <- optimize(negloglik.boxcox.3Grp, interval =c(min(c(data1,data2,data3)), max(c(data1,data2,data3))) , data1 = data1 + absmin1, xmat1 = xmat1,data2 = data2 + absmin2, xmat2 = xmat2,data3 = data3 + absmin3, xmat3 = xmat3,lik.method = lik.method,tol=0.01)
         
         lik.lambda <- list(par = lik.lambda$minimum, value = lik.lambda$objective, convergence = 0, message = "function optimize used")
       }
