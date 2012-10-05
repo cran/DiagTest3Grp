@@ -100,13 +100,14 @@ Pairwise.DiagTest3Grp.Test(dat,paired=FALSE,type=c("VUS","Youden"),p=0,q=0,mu=0,
   Accuracy with Three Ordinal Diagnostic Groups. \emph{Biometrical
     Journal} 5, 682-693
 
-  Luo, J and Xiong, C. (2011) Youden Index and Associated Optimal
-  Cut-points for Three Ordinal Groups.\emph{Communications in
-    Statistics--simulation and computation, submitted}
-  
-  Luo, J and Xiong, C. (2011) DiagTest3Grp: An R package for Analyzing
-  Diagnostic Tests with Three Ordinal Groups.\emph{Journal of
-    Statistical Software, submitted}  
+  Luo, J and Xiong, C. (2012) Youden Index and Associated Optimal Cut-point
+  for Three Ordinal Groups. \emph{Communications In Statistics-Simulation
+  and Computation}(in press).
+
+  Jingqin Luo, Chengjie Xiong (2012). DiagTest3Grp: An R Package for
+  Analyzing Diagnostic Tests with Three Ordinal Groups.\emph{Journal of
+    Statistical Software}, \bold{51}(3), 1-24.URL
+  http://www.jstatsoft.org/v51/i03/.
 }
 \author{
  Jingqin Luo
@@ -126,9 +127,9 @@ Pairwise.DiagTest3Grp.Test(dat,paired=FALSE,type=c("VUS","Youden"),p=0,q=0,mu=0,
 
  data(AL)
  new.AL <- data.frame(group=AL$group,-AL[,-1])
- new.AL <- new.AL[,1:5]##use the first 4 markers as an example
+ new.AL <- new.AL[,1:4]##use the first 3 markers as an example
 
- ##omnibus test on all 14 marker
+ ##omnibus test on the 3 AL markers
  Pairwise.DiagTest3Grp.Test(dat=new.AL,paired=TRUE,type="VUS",p=0,q=0,conf.level=0.95,p.adjust.method="fdr",digits=3)
 
 }

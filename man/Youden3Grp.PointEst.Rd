@@ -171,9 +171,9 @@ final summary measure.  Note that the package assumes that the
 }
 
 \references{
-  Luo, J and Xiong, C. 2011 Youden Index and Associated Optimal Cut-point
+  Luo, J and Xiong, C. (2012) Youden Index and Associated Optimal Cut-point
   for Three Ordinal Groups. \emph{Communications In Statistics-Simulation
-  and Computation}.
+  and Computation} (in press).
 }
 \author{
  Jingqin Luo

@@ -110,9 +110,9 @@ See details in \code{\link{Youden3Grp}}
 }
 
 \references{
-Luo, J and Xiong, C. 2010 Youden Index and Associated Optimal Cut-point
+Luo, J and Xiong, C. (2012) Youden Index and Associated Optimal Cut-point
 for Three Ordinal Groups. \emph{Communications In Statistics-Simulation
-  and Computation}.
+  and Computation} (in press).
 }
 
 \author{  

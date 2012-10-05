@@ -85,7 +85,7 @@ to the bootstrap \emph{CRC Press}.
  y <- factor1[group=="D0"]
  z <- factor1[group=="D+"]
 
- nonpar.vus <- NonParametric.VUS.var (x=x, y=y, z=z, alpha=0.05, NBOOT=100)
+ nonpar.vus <- NonParametric.VUS.var (x=x, y=y, z=z, alpha=0.05, NBOOT=10)
 }
 \keyword{nonparametric}
 \keyword{htest}

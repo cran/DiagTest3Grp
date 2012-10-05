@@ -46,9 +46,9 @@ A numeric value. The SD parameter of normal distribution in D+ group.
   \item{youden}{The dervied optimal youden index}
 }
 \references{
- Luo, J and Xiong, C. 2010 Youden Index and Associated Optimal Cut-point
- for Three Ordinal Groups. \emph{Communications In Statistics-Simulation
-   and Computation}.
+ Jingqin Luo and Chengjie Xiong (2012) Youden Index and Associated
+ Optimal Cut-point for Three Ordinal Groups. \emph{Communications In
+   Statistics--Simulation and Computation} (in press).
 }
 \author{
  Jingqin Luo

@@ -33,9 +33,9 @@ A numeric value, the sample size of data.
   Patel, J.K. and Read, C.B. (1996) Handbook of the Normal
   Distribution. CRC Press.
 
-  Luo, J and Xiong, C. 2010 Youden Index and Associated Optimal Cut-point
+  Luo, J and Xiong, C. (2012) Youden Index and Associated Optimal Cut-point
   for Three Ordinal Groups. \emph{Communications In Statistics-Simulation
-    and Computation}.
+    and Computation} (in press).
 }
 \author{
  Jingqin Luo

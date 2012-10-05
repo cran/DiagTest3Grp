@@ -108,20 +108,24 @@ and \eqn{H_1}:\eqn{\theta_1-\theta_2> 0} for \eqn{alternative=\dQuote{greater}} 
 
   Ferri, C. and Hernandez-Orallo, J. and Salido, M.A. (2003) Volume
   under the ROC Surface for Multi-class Problems \emph{LECTURE NOTES IN
-    COMPUTER SCIENCE} 108--120. 
+    COMPUTER SCIENCE} 108--120.
+  
   Xiong, C and Van Belle, G. and Miller, J.P. and Yan, Y. and Gao, F.,
   and Yu, K, and Morris, J. (2007) A Parametric Comparison of Diagnostic
   Accuracy with Three Ordinal Diagnostic Groups. \emph{Biometrical
-    Journal} 5, 682-693
+    Journal} \bold{5}, 682-693.
 
-  Luo, J and Xiong, C. (2011) Youden Index and Associated Optimal
+  Luo, J and Xiong, C. (2012) Youden Index and Associated Optimal
   Cut-points for Three Ordinal Groups.\emph{Communications in
-    Statistics--simulation and computation, submitted}
-  
-  Luo, J and Xiong, C. (2011) DiagTest3Grp: An R package for Analyzing
-  Diagnostic Tests with Three Ordinal Groups.\emph{Journal of
-    Statistical Software, submitted}  
+    Statistics--simulation and computation} (in press).
+
+  Jingqin Luo, Chengjie Xiong (2012). DiagTest3Grp: An R Package for
+  Analyzing Diagnostic Tests with Three Ordinal Groups.\emph{Journal of
+    Statistical Software}, \bold{51}(3), 1-24.URL
+  http://www.jstatsoft.org/v51/i03/. 
+ 
 }
+
 \author{
  Jingqin Luo
 }

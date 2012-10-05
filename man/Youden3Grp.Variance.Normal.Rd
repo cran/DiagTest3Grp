@@ -68,9 +68,9 @@ A numeric value. Significance level so that the function calculates the (1-alpha
      nonparametric method.}
 }
 \references{
-  Luo, J and Xiong, C. 2010 Youden Index and Associated Optimal
+  Luo, J and Xiong, C. (2012) Youden Index and Associated Optimal
   Cut-point for Three Ordinal Groups. \emph{Communications In
-    Statistics-Simulation and Computation}.
+    Statistics-Simulation and Computation} (in press).
 }
 
 \author{
