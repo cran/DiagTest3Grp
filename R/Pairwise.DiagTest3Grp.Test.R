@@ -68,7 +68,6 @@ Pairwise.DiagTest3Grp.Test <- function(dat,paired=FALSE,type=c("VUS","Youden"),p
     for (ii in 1:ncol(temp.mat2)) storage.mode(temp.mat2[,ii]) <- "double"
     markerID <- print.mat$MarkerID[seq(1,nrow(print.mat),by=3)]
     rownames(temp.mat2) <- markerID
-    require(gplots)
     heatmap.2(as.matrix(temp.mat2),symm=T,Rowv=FALSE, dendrogram="none",cellnote=temp.mat2,trace="none",main="Adjusted P-values",...)
     
     return(list(print.matrix=print.mat,pval.matrix=pval.mat))

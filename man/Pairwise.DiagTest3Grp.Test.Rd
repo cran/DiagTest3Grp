@@ -16,7 +16,10 @@
 }
 
 \usage{
-Pairwise.DiagTest3Grp.Test(dat,paired=FALSE,type=c("VUS","Youden"),p=0,q=0,mu=0,conf.level=0.95,alternative=c("two.sided","less","greater"),p.adjust.method=c("none","holm","hochberg","hommel","bonferroni","BH","BY","fdr"),digits=3,...)
+Pairwise.DiagTest3Grp.Test(dat,paired=FALSE,type=c("VUS","Youden"),p=0,q=0,mu=0,
+    conf.level=0.95, alternative=c("two.sided","less","greater"),
+    p.adjust.method=c("none","holm","hochberg","hommel","bonferroni","BH","BY","fdr"),
+    digits=3,...)
 }
 
 \arguments{
@@ -130,7 +133,8 @@ Pairwise.DiagTest3Grp.Test(dat,paired=FALSE,type=c("VUS","Youden"),p=0,q=0,mu=0,
  new.AL <- new.AL[,1:4]##use the first 3 markers as an example
 
  ##omnibus test on the 3 AL markers
- Pairwise.DiagTest3Grp.Test(dat=new.AL,paired=TRUE,type="VUS",p=0,q=0,conf.level=0.95,p.adjust.method="fdr",digits=3)
+ Pairwise.DiagTest3Grp.Test(dat=new.AL, paired=TRUE, type="VUS",p=0,q=0,
+               conf.level=0.95,p.adjust.method="fdr",digits=3)
 
 }
 \keyword{htest}

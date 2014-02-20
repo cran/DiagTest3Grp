@@ -1,5 +1,7 @@
 import(KernSmooth,graphics,stats)
 importFrom(car,bcPower)
+importFrom(gplots,heatmap.2)
+
 
 #S3method(print,"DiagTest3Grp")
 #S3method(plot,"DiagTest3Grp")

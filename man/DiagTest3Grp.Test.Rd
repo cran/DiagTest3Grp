@@ -13,7 +13,8 @@
 }
 
 \usage{
-DiagTest3Grp.Test(dat,paired=FALSE,type=c("VUS","Youden"),p=0,q=0,mu=0,conf.level=0.95,alternative=c("two.sided","less","greater"))
+DiagTest3Grp.Test (dat,paired=FALSE, type=c("VUS","Youden"),p=0,q=0,mu=0,
+     conf.level=0.95, alternative=c("two.sided","less","greater"))
 }
 
 \arguments{

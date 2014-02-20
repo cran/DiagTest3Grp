@@ -15,9 +15,6 @@ function(xx,yy,zz,nboot=30,lambda0=0.00001)
     ###nboot:number of bootstrap samples
     ###lambda0 : the close-to-0 lambda used in the hypothesis testing
 
-    #require(geoR)
-    #require(car)
-
     
     ##these steps have been delt in Youden3Grp.boxcox.fit() function
     if(min(xx)<=0) new.xx <- xx+abs(min(xx))+1

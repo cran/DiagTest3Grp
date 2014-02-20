@@ -122,7 +122,7 @@ function(x,y,z, method="Normal",randomStart.N=1,optim.method=NULL,t.minus.start=
         #if(is.na(lambda.est)) browser()
         
         #cat("lambda.est=",lambda.est,"\n")
-        #require(car)
+
         x <- bcPower(x,lambda=lambda.est)
         y <- bcPower(y,lambda=lambda.est)
         z <- bcPower(z,lambda=lambda.est)

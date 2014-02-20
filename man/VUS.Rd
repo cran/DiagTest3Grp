@@ -13,8 +13,9 @@
    calculate the sample size under normality to achieve a certain
    estimation precision on VUS estimate. }
 \usage{ VUS(x, y, z, method =c("Normal","NonPar"), p = 0, q = 0, alpha = 0.05,
-NBOOT = 100, subdivisions = 50000, lam.minus = 1/3, lam0 = 1/3, lam.plus
- = 1/3, typeIerror = 0.05, margin =0.05,FisherZ=FALSE,optimalCut=TRUE,cut.seq=NULL,optimize=FALSE,...) 
+          NBOOT = 100, subdivisions = 50000, lam.minus = 1/3, lam0 =1/3,
+          lam.plus= 1/3, typeIerror = 0.05, margin =0.05,FisherZ=FALSE,
+          optimalCut=TRUE,cut.seq=NULL,optimize=FALSE,...) 
 
 }
 
